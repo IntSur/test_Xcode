@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    let lines = [
+        GridItem(.adaptive(minimum: 60, maximum: 100))
+    ]
     var body: some View {
-        Image(.swiftui)
-            .resizable()
-            .containerRelativeFrame(.vertical) { size, axis in//设置垂直方向上，image的size为父视图size的0.1倍
-                size * 0.1
+        ScrollView {
+            LazyVGrid(columns: lines) {
+                ForEach(0..<100) {
+                    Text("\($0)")
+                }
             }
+        }
     }
 }
 
