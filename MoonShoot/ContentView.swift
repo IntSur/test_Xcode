@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Image(.swiftui)
+            .resizable()
+            .containerRelativeFrame(.vertical) { size, axis in//设置垂直方向上，image的size为父视图size的0.1倍
+                size * 0.1
+            }
     }
 }
 
